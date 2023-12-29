@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -14,8 +15,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $data=Admin::all();
+        return view('Userform.Userindex',['data'=>$data]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +28,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('Userform.Useradd');
     }
 
     /**
@@ -35,7 +40,27 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v=Validator::make($request->all(),
+        [
+            'name'=>'required|alpha',
+            'email'=>'required|email|unique:users,email|max:255|ends_with:gmail.com',
+            'password'=>'required|string'   
+        ] );
+            if($v->fails()){
+              //dd($v->errors());
+              return $v->errors();
+                   }
+
+            else{
+              $data=new Admin;
+              $data->name=$request->input('name');
+              $data->email=$request->input('email');
+              $data->password=$request->input('password');
+              $data->save();
+               
+              return redirect()->route('User.index');
+            }
+        
     }
 
     /**
@@ -44,9 +69,16 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(Admin $admin ,$id)
     {
-        //
+    
+        if(Admin::find($id)){
+        $data=Admin::find($id);
+        return view('Userform.Userindex',['data'=>$data]);}
+        
+        else{
+            dd('This id is not found');
+        }
     }
 
     /**
@@ -55,9 +87,15 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
-    {
-        //
+    public function edit(Admin $admin,$id)
+    { 
+        if(Admin::find($id)){
+        $User=Admin::find($id);
+        return view('Userform.Userupdate',['User'=>$User]);}
+
+        else{
+            dd('This id is not found');
+        }
     }
 
     /**
@@ -67,9 +105,29 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
-        //
+        $v=validator::make($request->all(),[
+            'name'=>'required|alpha',
+            'email'=>'required|max:255|ends_with:gmail.com',
+            'password'=>'required|string'    
+             ]);
+
+        if($v->fails()) {
+            dd($v->errors());
+         return $v->errors();
+
+           }
+
+        else{
+            $data=new Admin;
+            $data->name=$request->input('name');
+            $data->email=$request->input('email');
+            $data->password=$request->input('password');
+            $data->save();
+              return redirect()->route('User.index');
+
+        }
     }
 
     /**
@@ -78,8 +136,15 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        //
+        if(Admin::find($id)){
+            Admin::destroy($id);
+        return redirect()->route('User.index');
     }
+
+        else{
+            dd('This id is not found');
+        }
+}
 }
