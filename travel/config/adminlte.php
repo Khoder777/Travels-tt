@@ -167,12 +167,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'bg-gradient-dark',
     'classes_auth_header' => '',
-    'classes_auth_body' => '',
-    'classes_auth_footer' => '',
-    'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_body' => 'bg-gradient-dark',
+    'classes_auth_footer' => 'text-center',
+    'classes_auth_icon' => 'fa-fw text-light',
+    'classes_auth_btn' => 'btn-flat btn-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -318,6 +318,9 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+       
+ 
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -332,40 +335,56 @@ return [
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+             'submenu' => [
+            //     [
+            //         'text' => 'level_one',
+            //         'url'  => '#',
+            //     ],
+            //     [
+            //         'text'    => 'level_one',
+            //         'url'     => '#',
+            //         'submenu' => [
+            //             [
+            //                 'text' => 'level_two',
+            //                 'url'  => '#',
+            //             ],
+            //             [
+            //                 'text'    => 'level_two',
+            //                 'url'     => '#',
+            //                 'submenu' => [
+            //                     [
+            //                         'text' => 'level_three',
+            //                         'url'  => '#',
+            //                     ],
+            //                     [
+            //                         'text' => 'level_three',
+            //                         'url'  => '#',
+            //                     ],
+            //                 ],
+            //             ],
+            //         ],
+            //     ],
+            //     [
+            //         'text' => 'level_one',
+            //         'url'  => '#',
+            //     ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Cities',
+                    'url'         => '/Cityform/City',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Hotels',
+                    'url'         => '/Hotelform/Hotel',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
             ],
+           
+          
         ],
         ['header' => 'labels'],
         [
