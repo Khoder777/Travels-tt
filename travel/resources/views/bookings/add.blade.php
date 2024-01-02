@@ -35,7 +35,7 @@
   
       <div class="form-group">
         <label for="exampleInputPassword1">Customer_id</label>
-        <select class="form-select" aria-label="Default select example" name="ticket_id">
+        <select class="form-select" aria-label="Default select example" name="customer_id">
           <option selected>Open this select customer</option>
          @foreach ($customer as $customer)
          <option value="{{$customer->id}}">{{$customer->name}}</option>
@@ -44,12 +44,13 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Hotel_id</label>
-        <select class="form-select" aria-label="Default select example" name="ticket_id">
+        <select class="form-select" aria-label="Default select example" name="hotel_id">
           <option selected>Open this select hotel</option>
          @foreach ($hotel as $hotel)
          <option value="{{$hotel->id}}">{{$hotel->name}}</option>
          @endforeach
-        </select>    </div>
+        </select>    
+      </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Ticket_id</label>
           <select class="form-select" aria-label="Default select example" name="ticket_id">

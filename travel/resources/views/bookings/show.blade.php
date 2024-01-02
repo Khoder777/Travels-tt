@@ -1,7 +1,6 @@
 
 
 @extends('adminlte::page')
-
 @section('title', 'Dashboard')
 
 @section('content_header')
@@ -26,7 +25,7 @@
       @foreach ($booking as $booking)
       <tr>
         <th scope="row">{{$booking->date}}</th>
-        <td>{{$booking->ticket_id}}</td>
+        <td>{{$booking->ticket->date_e}}{{"---"}} {{$booking->ticket->date_s}}</td>
         <td>{{$booking->hotel->name}}</td>
         <td>{{$booking->customer->name}}</td>
         <td><a href="{{ route('booking.edit', $booking->id)}}">edit</a></td>
@@ -40,12 +39,20 @@
 
     <center><button><a href="{{route('booking.add')}}">ADD</a> </button></center>
 </form>
+
+
+
+
+
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="/css/admin_custom.css">
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script> console.log('Hi!');</script>
+  
+  
 @stop
