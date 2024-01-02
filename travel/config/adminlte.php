@@ -167,12 +167,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'bg-gradient-dark',
     'classes_auth_header' => '',
-    'classes_auth_body' => '',
-    'classes_auth_footer' => '',
-    'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_body' => 'bg-gradient-dark',
+    'classes_auth_footer' => 'text-center',
+    'classes_auth_icon' => 'fa-fw text-light',
+    'classes_auth_btn' => 'btn-flat btn-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -304,6 +304,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
+            'url'  => 'admin/blog',
             'text' => 'search',
         ],
         [
@@ -311,62 +312,138 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
+        
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+
+            'text'        => 'Add Booking',
+            'url'         => 'booking/add',
+
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
+
+            
         ],
+
+        [
+            'text'        => 'Add Company',
+            'url'         => 'company/add',
+           'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'your profile',
+            'url'  => 'User/edit',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => '/User/editpass',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+             'submenu' => [
+            //     [
+            //         'text' => 'level_one',
+            //         'url'  => '#',
+            //     ],
+            //     [
+            //         'text'    => 'level_one',
+            //         'url'     => '#',
+            //         'submenu' => [
+            //             [
+            //                 'text' => 'level_two',
+            //                 'url'  => '#',
+            //             ],
+            //             [
+            //                 'text'    => 'level_two',
+            //                 'url'     => '#',
+            //                 'submenu' => [
+            //                     [
+            //                         'text' => 'level_three',
+            //                         'url'  => '#',
+            //                     ],
+            //                     [
+            //                         'text' => 'level_three',
+            //                         'url'  => '#',
+            //                     ],
+            //                 ],
+            //             ],
+            //         ],
+            //     ],
+            //     [
+            //         'text' => 'level_one',
+            //         'url'  => '#',
+            //     ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+
+                    'text'        => 'Cities',
+                    'url'         => '/Cityform/City',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text'        => 'Hotels',
+                    'url'         => '/Hotelform/Hotel',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
+              
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'        => 'Tickets',
+                    'url'         => '/Ticketform/Ticket',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ],
+            
+
+               
+                [
+                    'text'        => 'Rating',
+                    'url'         => '/Rateform/Rate',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
                 ],
             ],
+           
+          
         ],
+
+
+
+                    'text'        => 'Companies',
+                    'url'         => 'company/show',
+                    'icon'        => 'far fa-fw fa-file',
+                    'label'       => 4,
+                    'label_color' => 'success',
+
+                    'text' => 'Customers',
+                    'url'  => '/customer',
+                ],
+              
+                
+                [
+                    'text'        => 'Bookings',
+                    'url'         => 'booking/show',
+                    'icon'        => 'far fa-fw fa-file',
+                    "icon_color"  => "orange",
+                    'label'       => 4,
+                    'label_color' => 'success',
+
+               
+                 ],
+                        
+
         ['header' => 'labels'],
         [
             'text'       => 'important',
