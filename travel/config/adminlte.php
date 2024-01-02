@@ -304,6 +304,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
+            'url'  => 'admin/blog',
             'text' => 'search',
         ],
         [
@@ -314,8 +315,10 @@ return [
 
         
         [
+
             'text'        => 'Add Booking',
             'url'         => 'booking/add',
+
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
@@ -329,13 +332,13 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'your profile',
+            'url'  => 'User/edit',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => '/User/editpass',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
@@ -344,12 +347,17 @@ return [
             'submenu' => [
                 [
 
+
                     'text'        => 'Companies',
                     'url'         => 'company/show',
                     'icon'        => 'far fa-fw fa-file',
                     'label'       => 4,
                     'label_color' => 'success',
+
+                    'text' => 'Customers',
+                    'url'  => '/customer',
                 ],
+              
                 
                 [
                     'text'        => 'Bookings',

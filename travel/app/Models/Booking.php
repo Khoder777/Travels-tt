@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'hotel_id',
         'ticket_id',
@@ -23,5 +24,6 @@ class Booking extends Model
     public function customer() { 
         return $this->belongsTo(Customer::class);
     }
+
 
 }

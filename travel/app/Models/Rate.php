@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rate extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'hotel_id',
         'customer_id',
@@ -20,4 +21,5 @@ class Rate extends Model
     public function customer() { 
         return $this->belongsTo(Customer::class);
     }
+
 }
