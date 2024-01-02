@@ -311,6 +311,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
         
         [
             'text'        => 'Add Booking',
@@ -322,7 +323,7 @@ return [
         [
             'text'        => 'Add Company',
             'url'         => 'company/add',
-            'icon'        => 'far fa-fw fa-file',
+           'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -342,6 +343,7 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
+
                     'text'        => 'Companies',
                     'url'         => 'company/show',
                     'icon'        => 'far fa-fw fa-file',
@@ -356,9 +358,11 @@ return [
                     "icon_color"  => "orange",
                     'label'       => 4,
                     'label_color' => 'success',
-                ],
-            ],
-        ],
+
+               
+                 ],
+                        
+         
         ['header' => 'labels'],
         [
             'text'       => 'important',
