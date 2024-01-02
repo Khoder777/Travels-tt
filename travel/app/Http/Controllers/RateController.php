@@ -30,9 +30,7 @@ class RateController extends Controller
     {
         //
         
-        $hotel=Hotel::get();
-        $customer=Customer::get();
-        return view('rates/add',['hotel'=>$hotel,"customer"=>$customer]);
+        
     }
 
     /**
@@ -44,26 +42,7 @@ class RateController extends Controller
     public function store(Request $request)
     {
         //
-        $validatedData = Validator::make($request->all(),[
-            'hotel_id' => 'required|string|exists:hotels,id',
-            'ticket_id' => 'required|string|exists:tickets,id',
-            'customer_id' => 'required|string|exists:customers,id',
-            'date'=> 'required|'
-        ]);
-        if ($validatedData->fails()) {
-        return $validatedData->errors();
-        }
-        else {
-            Rate::create(['date'=>$request->date,
-            'customer_id'=>$request->customer_id,
-            'hotel_id'=>$request->hotel_id,
-             
-        ]);
-        return redirect("booking/show");
-        }
-
-
-        return redirect("booking/show"); 
+        
     }
 
     /**
