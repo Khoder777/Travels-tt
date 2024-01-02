@@ -1,85 +1,108 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+ use Illuminate\Http\Request;
 use App\Models\City;
-use Illuminate\Http\Request;
+
 
 class CityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $data=City::all();
+        return view('Cityform.cityindex',['data'=>$data]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
+        return view('Cityform.cityadd');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
+        $v=validator::make($request->all(),
+        [
+            'name'=>'required|alpha',
+            'country'=>'required|alpha'   
+        ] );
+            if($v->fails()){
+              //dd($v->errors());
+              return $v->errors();
+                   }
+
+            else{
+              $data=new City;
+              $data->name=$request->input('name');
+              $data->country=$request->input('country');
+              $data->save();
+               
+              return redirect()->route('City.index');
+            }
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\City  $city
-     * @return \Illuminate\Http\Response
-     */
-    public function show(City $city)
+    
+    public function show($id)
     {
-        //
+    
+        if(City::find($id)){
+        $data=City::find($id);
+        return view('Cityform.cityindex',['data'=>$data]);}
+        
+        else{
+            dd('This id is not found');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\City  $city
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(City $city)
-    {
-        //
+   
+    public function edit($id)
+    { 
+        if(City::find($id)){
+        $city=City::find($id);
+        return view('Cityform.cityupdate',['city'=>$city]);}
+
+        else{
+            dd('This id is not found');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\City  $city
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, City $city)
+    public function update(Request $request, $id)
     {
-        //
+        $v=validator::make($request->all(),[
+            'name'=>'required|alpha',
+            'country'=>'required|alpha' ,     
+             ]);
+
+         if($v->fails()) {
+          //dd($v->errors());
+          return $v->errors();
+
+           }
+
+        else{
+              $city=City::find($id);
+              $city->name=$request->input('name');
+              $city->country=$request->input('country');
+              $city->save();
+              return redirect()->route('City.index');
+
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\City  $city
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(City $city)
+    public function destroy($id)
     {
-        //
+        if(City::find($id)){
+        City::destroy($id);
+        return redirect()->route('City.index');
+    }
+
+        else{
+            dd('This id is not found');
+        }
+
     }
 }

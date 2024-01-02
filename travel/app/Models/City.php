@@ -9,4 +9,25 @@ class City extends Model
 {
     use HasFactory;
 
+    protected $table='cities';
+
+    protected $fillable = [
+        'name',
+        'country',
+    ];
+
+    protected $hidden = [
+        'remember_token',
+    ];
+
+    protected $casts = [
+    'name' => 'string',
+    'country' => 'string',
+    ];
+
+
+    public function Hotels():object{
+        return $this->hasMany(Hotel::class);
+      }
+
 }
