@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\RateController;
+
+
+
+
 
 
 /*
@@ -45,8 +51,25 @@ Route::prefix('/Hotelform')->middleware('auth')->group(function () {
     Route::post('/Hotel/update/{id}',[\App\Http\Controllers\HotelController::class,'update'])->name('hotel.update');
     Route::get('Hotel/delete/{id}',[\App\Http\Controllers\HotelController::class,'destroy'])->name('form.destroy');
 });
+//ticket
+
+Route::prefix('/Ticketform')->middleware('auth')->group(function () {
+    Route::get('/Ticket',[TicketController::class,'index'])->name('ticket.index');;
+    Route::get('/Ticket/add',[TicketController::class,'create'])->name('ticket.create');
+    Route::post('/Ticket/store',[TicketController::class,'store'])->name('ticket.store');
+    Route::get('Ticket/edit/{id}',[TicketController::class,'edit'])->name('ticket.edit');
+    Route::post('/Ticket/update/{id}',[TicketController::class,'update'])->name('ticket.update');
+    Route::get('Ticket/delete/{id}',[TicketController::class,'destroy'])->name('form.destroy');
+});
 
 
 
-
-// });
+//rateing
+Route::prefix('/Rateform')->middleware('auth')->group(function () {
+    Route::get('/Rate',[RateController::class ,'index'])->name('Rate.index');
+    Route::get('Rate/add',[RateController::class ,'create'])->name('Rate.add');
+    Route::post('Rate/store',[RateController::class ,'store'])->name("Rate.create");
+    Route::get('Rate/edit/{id}',[RateController::class ,'edit'])->name("Rate.edit");
+    Route::post('Rate/update/{id}',[RateController::class ,'update'])->name('Rate.update');
+    Route::get('Rate/destroy/{id}',[RateController::class ,'destroy'])->name('Rate.destroy');
+});
