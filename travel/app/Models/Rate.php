@@ -8,4 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Rate extends Model
 {
     use HasFactory;
+    protected $table='rates';
+
+    protected $fillable = [
+        'star',
+        'commeny',
+        'customer_id',
+        'hotel_id',
+        
+    ];
+
+    protected $hidden = [
+        'remember_token',
+    ];
+
+     protected $casts = [
+        'star'=>'integer',
+        'comment'=>'string',
+        'customer_id'=>'integer',
+        'hotel_id'=>'integer',
+
+     ];
+
+     public function hotel() {
+        return $this->belongsTo(Hotel::class);
+    }
+    public function customer(){ 
+        return $this->belongsTo(Customer::class);
+    }
 }
