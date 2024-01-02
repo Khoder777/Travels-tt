@@ -317,8 +317,10 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
+
+            
         ],
-       
+     
  
 
         ['header' => 'account_settings'],
@@ -378,6 +380,24 @@ return [
                 [
                     'text'        => 'Hotels',
                     'url'         => '/Hotelform/Hotel',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ],
+              
+                [
+                    'text'        => 'Tickets',
+                    'url'         => '/Ticketform/Ticket',
+                   'icon_color' => 'yellow',
+                    // 'label'       => 4,
+                    'label_color' => 'success',
+                ],
+            
+
+               
+                [
+                    'text'        => 'Rating',
+                    'url'         => '/Rateform/Rate',
                    'icon_color' => 'yellow',
                     // 'label'       => 4,
                     'label_color' => 'success',
