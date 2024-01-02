@@ -15,8 +15,8 @@
             <th scope="col">Name</th>
             <th scope="col">phone</th>
             <th scope="col">City_id</th>
-            <th scope="col">update</th>
-            <th scope="col">delete</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -25,12 +25,14 @@
                 <th scope="row">{{ $hotel->id }}</th>
                 <td>{{ $hotel->name }}</td>
                 <td>{{ $hotel->phone }}</td>
-                <td>{{ $hotel->city_id}}</td>
+                <td>{{ $hotel->city->name}}</td>
                 <td><a href="Hotel/edit/{{ $hotel->id }}">edit</a></td>
                 <td><a href="Hotel/delete/{{ $hotel->id }}">delete</a></td>
             </tr>
 
         @endforeach
+       
+
 
 
         </tbody>

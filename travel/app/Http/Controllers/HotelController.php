@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Hotel;
 use App\Models\City;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Validation\Rule;
+
 
 class HotelController extends Controller
 {
     public function index()
     {
         $hotels = Hotel::all();
-        return view('Hotelform.hotelindex',['hotels'=>$hotels]);
+        $cities = City::all();
+        return view('Hotelform.hotelindex',['hotels'=>$hotels,'cities'=>$cities]);
 
     }
 
@@ -77,12 +80,12 @@ class HotelController extends Controller
 
    
     public function update(Request $request,$id)
-    {
+    {$data=Hotel::find($id);
         $v=validator::make($request->all(),[
 
             'city_id'=>'required|exists:cities,id',
             'name'=>'required|alpha',
-            'phone'=>'required|numeric|digits:10'      
+            'phone'=>['required','numeric','digits:10',Rule::unique('hotels','phone')->ignore( $data->phone,'phone')],      
          ] );
 
         if($v->fails()) {
