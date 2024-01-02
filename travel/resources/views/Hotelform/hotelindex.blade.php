@@ -14,7 +14,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">phone</th>
-            <th scope="col">City_id</th>
+            <th scope="col">City_Name</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
