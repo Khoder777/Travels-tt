@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
+
     protected $table='cities';
 
     protected $fillable = [
@@ -28,4 +29,5 @@ class City extends Model
     public function Hotels():object{
         return $this->hasMany(Hotel::class);
       }
+
 }

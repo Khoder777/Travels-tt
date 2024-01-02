@@ -3,33 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rate;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Customer;
 use App\Models\Hotel;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use App\Models\Customer;
+use App\Models\Hotel;
+
 class RateController extends Controller
 {
    
     public function index()
     {
+
       $rate=Rate::all();
       $customer=Customer::all();
       $hotel=Hotel::all();
       return view('Rateform/Rindex',['rate'=>$rate,'customer'=>$customer,'hotel'=>$hotel]);
 
+
     }
 
     
     public function create()
+
     { 
         $customer=Customer::all();
         $hotel=Hotel::all();
         return view('Rateform.add',['customer'=>$customer],['hotel'=>$hotel]);
+
     }
 
     
     public function store(Request $request)
     {
+
         
         $v=validator::make($request->all(),[
             'star'=>'required||numeric|digits:1|min:1|max:5',
@@ -53,6 +62,7 @@ class RateController extends Controller
               $data->save();
                return redirect()->route('Rate.index');
             }
+
     }
 
     
