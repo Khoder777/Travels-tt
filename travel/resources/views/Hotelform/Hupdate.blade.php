@@ -21,10 +21,11 @@
                         <input type="text" value="{{ $hotels->phone }}" class="form-control" id="phoneNumber" placeholder="phone Number" name="phone">
                     </div>
                     <div class="form-group"> 
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="city_id">
-                        <option display selected>City_id</option>
-                        @foreach($city as $city)
-                        <option value='{{$city->id}}'>{{$city->name}}</option>
+                    <select class="form-select" aria-label=".form-select-lg example" name="city_id" >
+                    <option display selected>City_id</option>
+                    @foreach($city as $city)
+                    <option value='{{$city->id}}' @selected($hotels->city_id==$city->id)>{{$city->name}}</option>
+                    
                         @endforeach
                         </select>
                         
