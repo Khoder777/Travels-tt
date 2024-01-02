@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rate;
+use App\Models\Customer;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RateController extends Controller
 {
@@ -15,6 +18,7 @@ class RateController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -25,6 +29,8 @@ class RateController extends Controller
     public function create()
     {
         //
+        
+        
     }
 
     /**
@@ -36,6 +42,7 @@ class RateController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**

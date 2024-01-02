@@ -312,10 +312,21 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
+        
         [
-            'text'        => 'pages',
-            'url'         => 'admin/blog',
+
+            'text'        => 'Add Booking',
+            'url'         => 'booking/add',
+
             'icon'        => 'far fa-fw fa-file',
+            'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Add Company',
+            'url'         => 'company/add',
+           'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
@@ -335,39 +346,31 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
+
+
+                    'text'        => 'Companies',
+                    'url'         => 'company/show',
+                    'icon'        => 'far fa-fw fa-file',
+                    'label'       => 4,
+                    'label_color' => 'success',
+
                     'text' => 'Customers',
                     'url'  => '/customer',
                 ],
+              
+                
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
+                    'text'        => 'Bookings',
+                    'url'         => 'booking/show',
+                    'icon'        => 'far fa-fw fa-file',
+                    "icon_color"  => "orange",
+                    'label'       => 4,
+                    'label_color' => 'success',
+
+               
+                 ],
+                        
+         
         ['header' => 'labels'],
         [
             'text'       => 'important',
