@@ -103,7 +103,7 @@ class CompanyController extends Controller
             'name'=> $request->name,
             'phone'=> $request->phone,
         ];
-        $company->update($date);
+        $company->t($date);
         return redirect("company/show");
 
         }
