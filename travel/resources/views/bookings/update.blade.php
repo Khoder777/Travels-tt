@@ -22,7 +22,7 @@
 
 <div class="container mt-3">
   <h2>Booking</h2>
-<form method="post" action={{ route('booking.create')}}>
+<form method="post" action={{ route('booking.update', $booking->id )}}>
   @csrf
   <div class="form-group">
     <label for="exampleInputEmail1">Company Name</label>
