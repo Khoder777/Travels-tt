@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Hotel's UPDATE</h1>
+<h1>Ticket's UPDATE</h1>
 @stop
 
 @section('content')
@@ -13,19 +13,19 @@
                 <form method="post" action="{{ route( 'ticket.update',['id'=> $tickets->id]) }}">
                     @csrf
                     <div class="form-group"> 
-                    <select class="form-select" multiple aria-label="multiple select example" name="city_id">
-                        <option display selected>City_id</option>
+                    <select class="form-select" aria-label=".form-select-lg example" name="city_id">
+                        
                         @foreach($city as $city)
-                        <option value='{{$city->id}}'>{{$city->name}}</option>
+                        <option value='{{$city->id}}'@selected($tickets->city_id==$city->id)>{{$city->name}}</option>
                         @endforeach
                         </select>
                     
                     </div> 
                     <div class="form-group"> 
                     <select class="form-select" aria-label=".form-select-lg example" name="company_id">
-                        <option display selected>Company_id</option>
+                       
                         @foreach($company as $company)
-                        <option value='{{$company->id}}'>{{$company->name}}</option>
+                        <option value='{{$company->id}}'@selected($tickets->company_id==$company->id)>{{$company->name}}</option>
                         @endforeach
                         </select>
                     
