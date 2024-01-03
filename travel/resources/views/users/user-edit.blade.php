@@ -3,14 +3,14 @@
 @section('title', 'Update user')
 
 @section('content_header')
-<h1>user's</h1>
+<h1><i class="fas fa-user-shield"></i> Admins's</h1>
 @stop
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form method="POST" action={{ Route('update',['id'=>$User->id]) }}>
+                <form method="POST" action={{ Route('updateuser',['id'=>$User->id]) }}>
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputPassword1">name</label>

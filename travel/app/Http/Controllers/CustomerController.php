@@ -73,6 +73,23 @@ class CustomerController extends Controller
         //
     }
 
+    public function search(Request $request)
+{
+    $name = $request->input('name');
+    $gender = $request->input('gender');
+    
+    $customers = Customer::query()
+        ->when($name, function ($query, $name) {
+            $query->where('name', 'LIKE', "%$name%");
+        })
+        ->when($gender, function ($query, $gender) {
+            $query->where('gender', $gender);
+        })
+        ->get();
+
+    return view('customers/customers-search', compact('customers'));
+}
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -4,7 +4,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Customers</h1>
+<h1><i class="fa fa-users"></i> Customers</h1>
 @stop
 
 @section('content')
@@ -16,6 +16,19 @@
     color: white;
 }
 </style>
+
+<!-- Add the search form -->
+<form method="GET" action="{{ route('customers-search') }}">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="name" placeholder="Search by name">
+        {{-- <div class="form-group row"> --}}
+            {{-- <label for="inputGender3" class="col-sm-2 col-form-label">Gender</label> --}}
+              <input type="gender" name='gender' class="form-control" id="inputGender3" placeholder="enter 'f' for female or 'M' for male">
+        {{-- <div class="input-group-append"> --}}
+            <button class="btn btn-primary" type="submit">Search</button>
+        {{-- </div> --}}
+    </div>
+</form>
 
     <table class="table">
         <thead>
@@ -54,6 +67,7 @@
 @stop
 
 @section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

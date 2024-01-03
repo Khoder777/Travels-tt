@@ -4,8 +4,7 @@
 @section('title', 'Update Admin password')
 
 @section('content_header')
-<h1>Customer's</h1>
-@stop
+<h1><i class="fas fa-user-shield"></i>change Admins password</h1>@stop
 
 @section('content')
     <div class="container">

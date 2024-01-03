@@ -28,7 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/User', [Usercontroller::class, 'index'])->name('userindex');
 Route::get('/User-show', [Usercontroller::class, 'show']);
 Route::get('/User/edit', [Usercontroller::class, 'edit'])->name('edit');
-Route::post('/User/update/{id}', [Usercontroller::class, 'update'])->name('update');
+Route::post('/User/update/{id}', [Usercontroller::class, 'update'])->name('updateuser');
 Route::get('/User/editpass',  function () {
     return view('users/user-pass');})->name('editpass');
 Route::post('/User/pass', [Usercontroller::class, 'pass'])->name('update-pass');
@@ -41,3 +41,4 @@ Route::get('/customer/confirm/{id}', [CustomerController::class, 'confirm'])->na
 Route::post('/customer/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
 Route::get('/customer/create/', [CustomerController::class, 'create'])->name('create');
 Route::post('/customer/store/', [CustomerController::class, 'store'])->name('store');
+Route::get('/customers/search', [CustomerController::class, 'search'])->name('customers-search');

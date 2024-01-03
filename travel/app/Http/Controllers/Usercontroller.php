@@ -40,7 +40,7 @@ class Usercontroller extends Controller
 
         $c->save();
           
-        return redirect()->route('index');
+        return view('home');
         //     ->with('success', 'User updated successfully.');
     }
     public function pass(Request $request)
